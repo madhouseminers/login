@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: login
+  namespace: madhouseminers
+spec:
+  selector:
+    app: login
+  ports:
+    - port: 4000
+      targetPort: 4000
+      name: graphql
