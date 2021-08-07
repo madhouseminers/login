@@ -5,7 +5,7 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm ci
 
-COPY src .
-RUN npm build
+COPY . .
+RUN npm run build
 
 CMD npm start
