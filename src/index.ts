@@ -1,15 +1,15 @@
+import { readFileSync } from "fs";
+import { resolve } from "path";
+
 import { ApolloServer, gql } from "apollo-server";
+import { buildSubgraphSchema } from "@apollo/federation";
 import resolvers from "./resolvers";
 
 const typeDefs = gql`
-  type LoginResponse {
-    email: String
-    password: String
-  }
-  type Query {
-    login(email: String, password: String): LoginResponse
-  }
+  ${readFileSync(resolve(__dirname, "../schema.graphql"))}
 `;
 
-const server = new ApolloServer({ resolvers, typeDefs });
-server.listen().then(({ url }) => console.log(url));
+const server = new ApolloServer({
+  schema: buildSubgraphSchema([{ resolvers, typeDefs }]),
+});
+server.listen({ port: 4001 }).then(({ url }) => console.log(url));

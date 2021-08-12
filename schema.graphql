@@ -1,0 +1,7 @@
+type LoginResponse {
+    email: String
+    password: String
+}
+type Query {
+    login(email: String, password: String): LoginResponse
+}
