@@ -16,3 +16,4 @@ spec:
       containers:
         - name: login
           image: ghcr.io/madhouseminers/login:main
+          imagePullPolicy: Always

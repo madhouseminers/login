@@ -12,4 +12,4 @@ const typeDefs = gql`
 const server = new ApolloServer({
   schema: buildSubgraphSchema([{ resolvers, typeDefs }]),
 });
-server.listen({ port: 4001 }).then(({ url }) => console.log(url));
+server.listen({ port: 4000 }).then(({ url }) => console.log(url));
